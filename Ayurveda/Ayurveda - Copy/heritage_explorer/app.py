@@ -35,7 +35,8 @@ from models import db, Site, User, UserProgress
 # ============================================================
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-load_dotenv(os.path.join(BASE_DIR, ".env"))
+PROJECT_DIR = os.path.dirname(BASE_DIR)
+load_dotenv(os.path.join(PROJECT_DIR, ".env"))
 
 
 # ============================================================

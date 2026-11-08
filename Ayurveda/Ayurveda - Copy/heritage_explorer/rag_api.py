@@ -29,7 +29,7 @@ METADATA_PATH = VECTOR_DIR / "metadata.json"
 # LOAD ENVIRONMENT VARIABLES
 # ============================================================
 
-ENV_PATH = BASE_DIR / ".env"
+ENV_PATH = BASE_DIR.parent / ".env"
 
 load_dotenv(dotenv_path=ENV_PATH)
 
