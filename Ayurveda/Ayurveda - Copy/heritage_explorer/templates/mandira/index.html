@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandira | Temple Discovery</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #f7f1e7;
+    color: #2b211a;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    height: 70px;
+    background: #2b1d14;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6vw;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #d39a60;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* ================= HERO ================= */
+.hero {
+    text-align: center;
+    padding: 55px 20px 40px;
+}
+
+.eyebrow {
+    color: #a5602c;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.05;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 18px auto 0;
+    color: #74685d;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* ================= GAME ================= */
+.game {
+    width: min(1400px, 94vw);
+    margin: auto;
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) minmax(400px, 1.3fr) minmax(250px, 0.8fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.panel {
+    background: #fffaf2;
+    border: 1px solid #dfcfb8;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(70, 45, 25, 0.06);
+}
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 7px;
+}
+
+.panel-heading .icon {
+    font-size: 28px;
+}
+
+.panel-heading h2 {
+    margin: 0;
+    font-size: 27px;
+}
+
+.panel-description {
+    margin: 0 0 22px;
+    color: #76695e;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* ================= PIECES ================= */
+#pieces {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.piece {
+    width: 100%;
+    aspect-ratio: var(--piece-ratio, 1 / 1);
+    border: 2px solid #d8c4a5;
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-size: 300% 300%;
+    cursor: grab;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.piece:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(70, 45, 25, 0.18);
+}
+
+.piece:active {
+    cursor: grabbing;
+}
+
+.piece.dragging {
+    opacity: 0.45;
+}
+
+/* ================= BOARD ================= */
+.board {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    background: #c8b396;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.slot {
+    width: 100%;
+    aspect-ratio: var(--piece-ratio, 1 / 1);
+    border: 2px dashed #c4ad8e;
+    border-radius: 6px;
+    background: #f8f0e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b39b7c;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: 0.15s;
+}
+
+.slot.drag-over {
+    background: #ead9c0;
+    border-color: #a35f2b;
+}
+
+.slot .piece {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 4px;
+}
+
+/* ================= TIMER ================= */
+.timer-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+
+.timer {
+    background: #f2e7d6;
+    color: #a45d29;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* ================= BUTTONS ================= */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border-radius: 30px;
+    padding: 13px 25px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.15s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.primary {
+    border: none;
+    background: #965321;
+    color: white;
+}
+
+.secondary {
+    background: transparent;
+    border: 1px solid #c6a477;
+    color: #70451f;
+}
+
+/* ================= TEMPLE INFO ================= */
+.temple-info {
+    text-align: center;
+}
+
+.temple-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.temple-info h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+.location {
+    color: #a5602c;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.temple-info p {
+    color: #65594f;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.mission {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #e1d2bd;
+}
+
+.mission strong {
+    color: #8e4f24;
+}
+
+/* ================= SUCCESS ================= */
+.success {
+    display: none;
+    text-align: center;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 15px;
+    background: #ead8bd;
+}
+
+.success.visible {
+    display: block;
+}
+
+.success-icon {
+    font-size: 55px;
+}
+
+.success h3 {
+    margin: 8px 0;
+    font-size: 27px;
+}
+
+.success p {
+    font-family: Arial, sans-serif;
+    color: #65594f;
+    line-height: 1.5;
+}
+
+/* ================= LEARNING ================= */
+.learning {
+    display: none;
+    width: min(1100px, 92vw);
+    margin: 70px auto;
+}
+
+.learning.visible {
+    display: block;
+}
+
+.learning-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.learning-header h2 {
+    font-size: 42px;
+    margin: 10px 0;
+}
+
+.learning-header p {
+    color: #a5602c;
+    font-family: Arial, sans-serif;
+}
+
+.learning-card {
+    background: #fffaf2;
+    border: 1px solid #dfcfb8;
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 18px;
+}
+
+.learning-card h3 {
+    margin: 0 0 12px;
+    font-size: 25px;
+}
+
+.learning-card p {
+    color: #65594f;
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+}
+
+.image-error {
+    padding: 25px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #9b4f27;
+    background: #f3e5d2;
+    border-radius: 12px;
+}
+
+@media (max-width: 1100px) {
+    .game { grid-template-columns: 1fr 1fr; }
+    .temple-info { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+    .navbar { height: 64px; padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 40px 18px 30px; }
+    .hero h1 { font-size: 40px; }
+    .game { width: 94vw; grid-template-columns: 1fr; }
+    .temple-info { grid-column: auto; }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">🛕 MANDIRA <span>•</span></div>
+    <div class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('mandira') }}">Temples</a>
+        <a href="#learning">Learn</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="eyebrow">Discovery Challenge</div>
+    <h1>Rebuild the Temple</h1>
+    <p>Arrange the pieces of the temple and reveal the heritage hidden within.</p>
+</header>
+
+<main class="game">
+    <section class="panel">
+        <div class="panel-heading">
+            <div class="icon">🧩</div>
+            <h2>Puzzle Pieces</h2>
+        </div>
+        <p class="panel-description">Drag each piece into its correct position.</p>
+        <div id="pieces"></div>
+    </section>
+
+    <section class="panel">
+        <div class="timer-box">
+            <div class="timer">⏱ <span id="timer">00:00</span></div>
+        </div>
+        <div class="panel-heading">
+            <div class="icon">▦</div>
+            <h2>Your Puzzle</h2>
+        </div>
+        <p class="panel-description">Reconstruct the temple to unlock its story.</p>
+        <div id="board" class="board"></div>
+
+        <div class="actions">
+            <button id="checkButton" class="btn primary">🧩 Check Puzzle</button>
+            <button id="shuffleButton" class="btn secondary">🔄 Shuffle</button>
+        </div>
+
+        <div id="success" class="success">
+            <div class="success-icon">🛕</div>
+            <h3>Temple Discovered!</h3>
+            <p>You successfully reconstructed Padmanabhaswamy Temple.<br><br><strong>+100 XP</strong></p>
+            <button id="exploreButton" class="btn primary">Explore the Temple →</button>
+        </div>
+    </section>
+
+    <section class="panel temple-info">
+        <div class="temple-icon">🛕</div>
+        <h2>Padmanabhaswamy Temple</h2>
+        <div class="location">Thiruvananthapuram, Kerala</div>
+        <p>A historic temple dedicated to Lord Padmanabha, known for its rich heritage, distinctive architecture and cultural significance.</p>
+        <div class="mission">
+            <strong>YOUR MISSION</strong>
+            <p>Rebuild the image.<br><br>Discover the temple.<br><br>Unlock its story.</p>
+        </div>
+    </section>
+</main>
+
+<section id="learning" class="learning">
+    <div class="learning-header">
+        <div class="eyebrow">Temple Unlocked</div>
+        <h2>Padmanabhaswamy Temple</h2>
+        <p>Your journey continues...</p>
+    </div>
+    <div class="learning-card">
+        <h3>📜 The Story</h3>
+        <p>The Padmanabhaswamy Temple is a historic temple dedicated to Lord Padmanabha and is located in Thiruvananthapuram, Kerala.</p>
+    </div>
+    <div class="learning-card">
+        <h3>🏛️ Explore the Architecture</h3>
+        <p>Traditional temple architecture brings together sacred spaces, monumental entrances, sculpture and carefully planned layouts.</p>
+    </div>
+    <div class="learning-card">
+        <h3>🏆 Achievement Unlocked</h3>
+        <p>You are now a <strong>Temple Explorer</strong>.<br><br>+100 XP</p>
+    </div>
+</section>
+
+<script>
+/* Dynamically generated Flask static path for the image */
+const IMAGE_PATH = "{{ url_for('static', filename='images/padmanabhiswamy.jpg') }}";
+
+const GRID_SIZE = 3;
+const TOTAL_PIECES = GRID_SIZE * GRID_SIZE;
+
+let pieces = [];
+let board = Array(TOTAL_PIECES).fill(null);
+let draggedPiece = null;
+let seconds = 0;
+let timerStarted = false;
+
+const correctOrder = Array.from({ length: TOTAL_PIECES }, (_, index) => index);
+
+const piecesContainer = document.getElementById("pieces");
+const boardContainer = document.getElementById("board");
+const successBox = document.getElementById("success");
+const learningSection = document.getElementById("learning");
+const timerElement = document.getElementById("timer");
+
+const imageTest = new Image();
+
+imageTest.onload = function () {
+    const imageRatio = this.naturalWidth / this.naturalHeight;
+    document.documentElement.style.setProperty("--piece-ratio", imageRatio);
+    initializeGame();
+    timerStarted = true;
+};
+
+imageTest.onerror = function () {
+    piecesContainer.innerHTML = `
+        <div class="image-error">
+            ❌ Temple image not found at static folder.<br><br>
+            Please check if padmanabhiswamy.jpg is inside static/images/.
+        </div>
+    `;
+};
+
+imageTest.src = IMAGE_PATH;
+
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[i]];
+    }
+    return shuffled;
+}
+
+function initializeGame() {
+    pieces = shuffleArray(correctOrder);
+    board = Array(TOTAL_PIECES).fill(null);
+    successBox.classList.remove("visible");
+    createPieces();
+    createBoard();
+}
+
+function createPiece(pieceNumber) {
+    const piece = document.createElement("div");
+    piece.className = "piece";
+    piece.dataset.piece = pieceNumber;
+
+    const row = Math.floor(pieceNumber / GRID_SIZE);
+    const column = pieceNumber % GRID_SIZE;
+
+    const x = column * 50;
+    const y = row * 50;
+
+    piece.style.backgroundImage = `url("${IMAGE_PATH}")`;
+    piece.style.backgroundPosition = `${x}% ${y}%`;
+    piece.draggable = true;
+
+    piece.addEventListener("dragstart", function (event) {
+        draggedPiece = piece;
+        piece.classList.add("dragging");
+        event.dataTransfer.effectAllowed = "move";
+        event.dataTransfer.setData("text/plain", String(pieceNumber));
+    });
+
+    piece.addEventListener("dragend", function () {
+        piece.classList.remove("dragging");
+        draggedPiece = null;
+    });
+
+    return piece;
+}
+
+function createPieces() {
+    piecesContainer.innerHTML = "";
+    pieces.forEach(function (pieceNumber) {
+        if (board.includes(pieceNumber)) return;
+        const piece = createPiece(pieceNumber);
+        piecesContainer.appendChild(piece);
+    });
+}
+
+function createBoard() {
+    boardContainer.innerHTML = "";
+    for (let slotIndex = 0; slotIndex < TOTAL_PIECES; slotIndex++) {
+        const slot = document.createElement("div");
+        slot.className = "slot";
+        slot.dataset.slot = slotIndex;
+
+        if (board[slotIndex] === null) {
+            slot.textContent = slotIndex + 1;
+        }
+
+        slot.addEventListener("dragover", function (event) {
+            event.preventDefault();
+            slot.classList.add("drag-over");
+        });
+
+        slot.addEventListener("dragleave", function () {
+            slot.classList.remove("drag-over");
+        });
+
+        slot.addEventListener("drop", function (event) {
+            event.preventDefault();
+            slot.classList.remove("drag-over");
+
+            if (!draggedPiece) return;
+
+            const pieceNumber = Number(draggedPiece.dataset.piece);
+            const targetSlot = Number(slot.dataset.slot);
+            const oldPieceSlot = board.indexOf(pieceNumber);
+
+            if (board[targetSlot] !== null) {
+                const targetPiece = board[targetSlot];
+                if (oldPieceSlot !== -1) {
+                    board[oldPieceSlot] = targetPiece;
+                }
+            }
+
+            board[targetSlot] = pieceNumber;
+            renderGame();
+        });
+
+        if (board[slotIndex] !== null) {
+            slot.innerHTML = "";
+            const piece = createPiece(board[slotIndex]);
+            slot.appendChild(piece);
+        }
+
+        boardContainer.appendChild(slot);
+    }
+}
+
+function renderGame() {
+    createPieces();
+    createBoard();
+}
+
+function checkPuzzle() {
+    const allFilled = board.every(piece => piece !== null);
+    if (!allFilled) {
+        showMessage("🧩 Place all 9 pieces first!");
+        return;
+    }
+
+    const correct = board.every((piece, index) => piece === correctOrder[index]);
+    if (correct) {
+        puzzleCompleted();
+    } else {
+        showMessage("Not quite! Some pieces are in the wrong position 😊");
+    }
+}
+
+function puzzleCompleted() {
+    successBox.classList.add("visible");
+    timerStarted = false;
+    showMessage("🏆 Temple unlocked! +100 XP");
+}
+
+function showMessage(message) {
+    const messageBox = document.createElement("div");
+    messageBox.textContent = message;
+    Object.assign(messageBox.style, {
+        position: "fixed", left: "50%", bottom: "30px", transform: "translateX(-50%)",
+        background: "#2b1d14", color: "white", padding: "14px 24px", borderRadius: "30px",
+        fontFamily: "Arial, sans-serif", zIndex: "9999"
+    });
+    document.body.appendChild(messageBox);
+    setTimeout(() => messageBox.remove(), 2200);
+}
+
+document.getElementById("shuffleButton").addEventListener("click", function () {
+    pieces = shuffleArray(correctOrder);
+    board = Array(TOTAL_PIECES).fill(null);
+    successBox.classList.remove("visible");
+    renderGame();
+});
+
+document.getElementById("checkButton").addEventListener("click", checkPuzzle);
+
+document.getElementById("exploreButton").addEventListener("click", function () {
+    learningSection.classList.add("visible");
+    learningSection.scrollIntoView({ behavior: "smooth" });
+});
+
+setInterval(function () {
+    if (!timerStarted) return;
+    seconds++;
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    timerElement.textContent = String(minutes).padStart(2, "0") + ":" + String(remainingSeconds).padStart(2, "0");
+}, 1000);
+</script>
+
+</body>
+</html>

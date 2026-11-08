@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Vedic Ethos — Sanctuaries of Sacred Wisdom</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#ffffff",
+                        "on-surface": "#12372a",
+                        "primary": "#176b4d",
+                        "primary-container": "#22875f",
+                        "secondary-container": "#dff3e9",
+                        "surface-container-low": "#f4faf7",
+                        "surface-container": "#edf7f2",
+                        "secondary": "#557267",
+                        "outline": "#6f8d81",
+                        "outline-variant": "#c9e1d6",
+                        "saffron": "#c9782d",
+                        "saffron-soft": "#fff0dc",
+                        "lotus": "#b85c72",
+                        "lotus-soft": "#fbe8ed",
+                        "teal-soft": "#dff5f2"
+                    },
+                    fontFamily: {
+                        "display": ["Libre Caslon Text", "serif"],
+                        "sans": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        ::-webkit-scrollbar { display: none; }
+        html { scroll-behavior: smooth; }
+        body { background: #ffffff; overflow-x: hidden; color-scheme: light; }
+        .hero-glow {
+            background:
+                radial-gradient(circle at 50% 25%, rgba(91, 177, 137, .16) 0%, rgba(255,255,255,0) 52%),
+                radial-gradient(circle at 10% 65%, rgba(205,239,223,.22) 0%, rgba(255,255,255,0) 38%),
+                radial-gradient(circle at 92% 72%, rgba(255, 213, 166, .28) 0%, rgba(255,255,255,0) 34%);
+        }
+        .hero-title span {
+            background: linear-gradient(120deg, #12372a, #176b4d, #2c9b6d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-action { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease; }
+        .hero-action:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(23,107,77,.15); }
+        .feature-card { transition: transform .3s ease, box-shadow .3s ease; }
+        .feature-card:hover { transform: translateY(-4px); box-shadow: 0 16px 35px rgba(18,55,42,.08); }
+        .feature-card.saffron { background: linear-gradient(145deg, #fffaf4, #fff0dc); border-color: rgba(201,120,45,.28); }
+        .feature-card.teal { background: linear-gradient(145deg, #f8fffd, #dff5f2); border-color: rgba(34,135,95,.24); }
+        .feature-card.lotus { background: linear-gradient(145deg, #fffafd, #fbe8ed); border-color: rgba(184,92,114,.25); }
+        .feature-card.saffron .material-symbols-outlined { color: #c9782d; }
+        .feature-card.teal .material-symbols-outlined { color: #22875f; }
+        .feature-card.lotus .material-symbols-outlined { color: #b85c72; }
+        .color-bar { width: 42px; height: 4px; border-radius: 999px; margin-bottom: 18px; }
+        .color-bar.saffron { background: #c9782d; }
+        .color-bar.teal { background: #22875f; }
+        .color-bar.lotus { background: #b85c72; }
+    </style>
+</head>
+<body class="bg-surface-bright font-sans text-on-surface min-h-screen flex flex-col antialiased">
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="fixed top-6 left-1/2 -translate-x-1/2 z-50 space-y-2">
+      {% for category, message in messages %}
+        <div class="px-5 py-3 rounded-full bg-on-surface text-surface-bright text-xs font-semibold shadow-2xl flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[18px]">info</span>
+            <span>{{ message }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+<header class="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-outline-variant/30">
+    <div class="h-[76px] max-w-6xl mx-auto px-6 lg:px-10 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-2xl bg-secondary-container flex items-center justify-center text-primary shadow-xs">
+                <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">spa</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="font-display text-lg tracking-wide text-primary font-bold">Vedic Ethos</span>
+                <span class="text-[10px] text-secondary tracking-widest uppercase -mt-1 font-semibold">Sanctuaries of Wisdom</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('mandira') }}" class="px-5 py-2.5 rounded-full bg-primary text-white text-xs font-semibold shadow-sm hover:bg-primary-container transition-all flex items-center gap-2">
+                    <span>Enter Atlas</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </a>
+            {% else %}
+                <button onclick="openAuthModal('login')" class="px-4 py-2 text-xs font-semibold text-secondary hover:text-primary transition-colors">Log In</button>
+                <button onclick="openAuthModal('register')" class="px-5 py-2.5 rounded-full bg-primary text-white text-xs font-semibold shadow-sm hover:bg-primary-container transition-all">Get Started</button>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+<main class="flex-1 hero-glow relative overflow-hidden flex flex-col items-center justify-center text-center px-6 pt-20 pb-28 max-w-6xl mx-auto space-y-8">
+    
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/75 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest">
+        <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+        <span>Interactive Heritage Exploration</span>
+    </div>
+
+    <div class="space-y-4 max-w-4xl">
+        <h1 class="hero-title font-display text-4xl sm:text-5xl lg:text-7xl text-on-surface font-bold leading-[1.08]">
+            Discover the <span>Wisdom of Ayurveda</span>
+        </h1>
+        <p class="text-secondary text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Explore timeless Ayurvedic knowledge through a clean, interactive experience grounded in classical sources.
+        </p>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="{{ url_for('mandira') }}" class="hero-action px-7 py-3.5 rounded-2xl bg-primary text-white font-semibold text-xs shadow-md flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">explore</span>
+            <span>Explore Knowledge Atlas</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+
+        <a href="{{ url_for('ahara') }}" class="hero-action px-6 py-3.5 rounded-2xl bg-white border border-primary/20 font-semibold text-xs text-primary shadow-xs flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">restaurant</span>
+            <span>Explore Ahara</span>
+        </a>
+
+        {% if not current_user.is_authenticated %}
+        <button onclick="openAuthModal('register')" class="hero-action px-6 py-3.5 rounded-2xl bg-secondary-container/80 border border-primary/20 font-semibold text-xs text-primary shadow-xs">
+            Create Free Account
+        </button>
+        {% endif %}
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 w-full pt-10 text-left">
+        <div class="feature-card saffron p-6 rounded-3xl border shadow-xs space-y-2">
+            <div class="color-bar saffron"></div>
+            <span class="material-symbols-outlined text-primary text-[28px]">grid_4x4</span>
+            <h4 class="font-display font-bold text-base text-on-surface">3 Interactive Modes</h4>
+            <p class="text-xs text-secondary leading-relaxed">Engage with jigsaw restoration, memory matching, and wildcard sequences.</p>
+        </div>
+        <div class="feature-card teal p-6 rounded-3xl border shadow-xs space-y-2">
+            <div class="color-bar teal"></div>
+            <span class="material-symbols-outlined text-primary text-[28px]">graphic_eq</span>
+            <h4 class="font-display font-bold text-base text-on-surface">Sanctum Resonance</h4>
+            <p class="text-xs text-secondary leading-relaxed">Listen to authentic 432Hz harmonic chant simulations from inner stone chambers.</p>
+        </div>
+        <div class="feature-card lotus p-6 rounded-3xl border shadow-xs space-y-2">
+            <div class="color-bar lotus"></div>
+            <span class="material-symbols-outlined text-primary text-[28px]">history_edu</span>
+            <h4 class="font-display font-bold text-base text-on-surface">Progressive Vaults</h4>
+            <p class="text-xs text-secondary leading-relaxed">Unseal multi-step treatises detailing astronomy and ancient builders.</p>
+        </div>
+    </div>
+</main>
+
+<div id="auth-modal" class="fixed inset-0 z-50 bg-on-surface/30 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-white w-full max-w-md rounded-3xl p-6 shadow-2xl border border-outline-variant/40 space-y-5 relative">
+        <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-outline hover:text-on-surface">
+            <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+
+        <div class="flex items-center border-b border-outline-variant/30 pb-3 gap-6 text-xs font-semibold">
+            <button id="tab-login-btn" onclick="switchAuthTab('login')" class="text-primary border-b-2 border-primary pb-3 -mb-3 font-bold">Log In</button>
+            <button id="tab-reg-btn" onclick="switchAuthTab('register')" class="text-secondary hover:text-on-surface pb-3 -mb-3">Register Account</button>
+        </div>
+
+        <form id="form-login" action="{{ url_for('login') }}" method="POST" class="space-y-3">
+            <div>
+                <label class="block text-[11px] font-semibold text-secondary mb-1">Username or Email</label>
+                <input type="text" name="login_identifier" required placeholder="Enter username or email" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 text-xs focus:outline-none focus:border-primary">
+            </div>
+            <div>
+                <label class="block text-[11px] font-semibold text-secondary mb-1">Password</label>
+                <input type="password" name="password" required placeholder="••••••••" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 text-xs focus:outline-none focus:border-primary">
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-primary text-white font-semibold text-xs hover:bg-primary-container transition-all">Log In</button>
+        </form>
+
+        <form id="form-register" action="{{ url_for('register') }}" method="POST" class="space-y-3 hidden">
+            <div>
+                <label class="block text-[11px] font-semibold text-secondary mb-1">Username</label>
+                <input type="text" name="username" required placeholder="SeekerName" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 text-xs focus:outline-none focus:border-primary">
+            </div>
+            <div>
+                <label class="block text-[11px] font-semibold text-secondary mb-1">Email Address</label>
+                <input type="email" name="email" required placeholder="seeker@vedicethos.org" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 text-xs focus:outline-none focus:border-primary">
+            </div>
+            <div>
+                <label class="block text-[11px] font-semibold text-secondary mb-1">Password (Min. 6 chars)</label>
+                <input type="password" name="password" minlength="6" required placeholder="••••••••" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 text-xs focus:outline-none focus:border-primary">
+            </div>
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-primary text-white font-semibold text-xs hover:bg-primary-container transition-all">Create Account</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openAuthModal(mode) {
+        document.getElementById('auth-modal').classList.remove('hidden');
+        document.getElementById('auth-modal').classList.add('flex');
+        switchAuthTab(mode);
+    }
+    function closeAuthModal() {
+        document.getElementById('auth-modal').classList.add('hidden');
+        document.getElementById('auth-modal').classList.remove('flex');
+    }
+    function switchAuthTab(mode) {
+        const loginForm = document.getElementById('form-login');
+        const regForm = document.getElementById('form-register');
+        const loginBtn = document.getElementById('tab-login-btn');
+        const regBtn = document.getElementById('tab-reg-btn');
+
+        if (mode === 'login') {
+            loginForm.classList.remove('hidden');
+            regForm.classList.add('hidden');
+            loginBtn.className = "text-primary border-b-2 border-primary pb-3 -mb-3 font-bold";
+            regBtn.className = "text-secondary hover:text-on-surface pb-3 -mb-3";
+        } else {
+            loginForm.classList.add('hidden');
+            regForm.classList.remove('hidden');
+            regBtn.className = "text-primary border-b-2 border-primary pb-3 -mb-3 font-bold";
+            loginBtn.className = "text-secondary hover:text-on-surface pb-3 -mb-3";
+        }
+    }
+</script>
+</body>
+</html>

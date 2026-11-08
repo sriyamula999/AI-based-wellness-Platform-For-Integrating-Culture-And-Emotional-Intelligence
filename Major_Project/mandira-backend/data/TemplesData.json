@@ -1,0 +1,262 @@
+[
+  {
+    "templeId": "taj-mahal",
+    "name": "Taj Mahal",
+    "location": "Agra, Uttar Pradesh, India",
+    "masterImageUrl": "/images/temples/taj-mahal.jpg",
+    "totalCards": 6,
+    "flashcards": [
+      {
+        "id": 1,
+        "order": 1,
+        "category": "Name & Location",
+        "title": "Name & Location",
+        "content": "Name: Taj Mahal\nLocation: Agra, Uttar Pradesh, India"
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "category": "History",
+        "title": "History",
+        "content": "Commissioned in 1632 by the Mughal Emperor Shah Jahan, the Taj Mahal was built as a majestic mausoleum for his beloved wife, Mumtaz Mahal. Constructed over a span of 22 years, it brought together over 20,000 artisans, master builders, and calligraphers from across India, Persia, and the Ottoman Empire. The project utilized an elaborate supply network involving over a thousand elephants to transport pristine white marble from the quarries of Makrana, Rajasthan, serving as an enduring symbol of eternal love."
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "category": "Architecture",
+        "title": "Architecture",
+        "content": "The monument is an architectural masterpiece of Mughal design, seamlessly integrating Persian, Islamic, and Indian artistic elements. Set symmetrically within a Charbagh (four-quadrant garden) layout representing Paradise, the complex features a grand central mausoleum crowned by a massive double dome. Its white marble surfaces are intricately decorated using the pietra dura inlay technique, featuring semi-precious stones arranged in floral patterns, paired with optically uniform Quranic calligraphy."
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "category": "Facts",
+        "title": "Facts",
+        "content": "The four exterior minarets are intentionally tilted outward so they collapse away from the central tomb during earthquakes.\nThe marble changes its apparent color throughout the day, appearing pinkish at dawn, milky white at noon, and golden under moonlight.\nZero human or animal figures are used in its decorative motifs, respecting strict Islamic design traditions."
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "category": "Secrets",
+        "title": "Secrets",
+        "content": "The main interior chamber housing Shah Jahan and Mumtaz Mahal's tombs contains false cenotaphs; their actual graves rest in a quieter, restricted subterranean crypt below.\nThe calligraphic inscriptions on the archways use an optical illusion, expanding in size higher up so they look uniform from the ground."
+      },
+      {
+        "id": 6,
+        "order": 6,
+        "category": "Culture & Importance",
+        "title": "Culture & Importance",
+        "content": "Designated as a UNESCO World Heritage Site in 1983, the Taj Mahal stands globally as the peak achievement of Indo-Islamic art. It reflects India's rich syncretic heritage, drawing millions of global visitors and inspiring profound artistic, literary, and cultural expressions."
+      }
+    ],
+    "unknownSecret": "Grand Secret: The calligraphic inscriptions on the archways use a reverse-scaling optical illusion—the letters expand in size higher up so they appear completely uniform and proportional to viewers standing on the ground."
+  },
+  {
+    "templeId": "konark-sun-temple",
+    "name": "Konark Sun Temple",
+    "location": "Konark, Odisha, India",
+    "masterImageUrl": "/images/temples/konark.jpg",
+    "totalCards": 6,
+    "flashcards": [
+      {
+        "id": 1,
+        "order": 1,
+        "category": "Name & Location",
+        "title": "Name & Location",
+        "content": "Name: Konark Sun Temple\nLocation: Konark, Odisha, India"
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "category": "History",
+        "title": "History",
+        "content": "Built in the 13th century around 1250 CE, the Konark Sun Temple was commissioned by King Narasimhadeva I of the Eastern Ganga Dynasty. It was constructed as a monumental celebration of military victory and an act of supreme devotion to Surya, the Hindu Sun God. Thousands of master sculptors spent twelve years carving chlorite, laterite, and khondalite stones to complete the sacred complex."
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "category": "Architecture",
+        "title": "Architecture",
+        "content": "Rooted firmly in classic Kalinga architecture, the complex is designed as a massive cosmic chariot for the Sun God. It is pulled by seven carved stone horses and supported by 24 elaborately decorated stone wheels. The structure features intricate relief carvings depicting celestial musicians, dancers, wildlife, and geometric motifs across its surviving assembly hall (Jagamohana) and ruined main sanctuary tower (Deul)."
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "category": "Facts",
+        "title": "Facts",
+        "content": "The 24 colossal wheels of the temple function as functional sundials, capable of accurately calculating time down to the exact minute.\nThe entire complex aligns along the east-west axis to catch the absolute first rays of the morning sun directly upon its sanctum.\nThree distinct types of stone—chlorite, laterite, and khondalite—were utilized depending on their specific structural and artistic requirements."
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "category": "Secrets",
+        "title": "Secrets",
+        "content": "A massive lodestone (magnetic iron core) was historically reported to be placed at the temple's summit, which allegedly caused ships passing in the Bay of Bengal to pull off-course.\nThe massive main sanctuary tower (rekha deula) mysteriously collapsed centuries ago, with historians debating whether ground subsidence, lightning, or structural removal of iron binders caused it."
+      },
+      {
+        "id": 6,
+        "order": 6,
+        "category": "Culture & Importance",
+        "title": "Culture & Importance",
+        "content": "As a UNESCO World Heritage Site, Konark represents the pinnacle of ancient Indian engineering, astronomical mastery, and sculptural finesse. It remains an essential cultural cornerstone of Odisha's traditional dance, heritage, and artistic identity."
+      }
+    ],
+    "unknownSecret": "Grand Secret: The alignment of the temple's main entrance precisely catches the equinoctial and solstitial sunbeams, acting as an ancient solar calendar observatory that maps seasonal transitions with sub-degree accuracy."
+  },
+  {
+    "templeId": "khajuraho-temples",
+    "name": "Khajuraho Group of Monuments",
+    "location": "Chhatarpur District, Madhya Pradesh, India",
+    "masterImageUrl": "/images/temples/khajuraho.jpg",
+    "totalCards": 6,
+    "flashcards": [
+      {
+        "id": 1,
+        "order": 1,
+        "category": "Name & Location",
+        "title": "Name & Location",
+        "content": "Name: Khajuraho Group of Monuments\nLocation: Chhatarpur District, Madhya Pradesh, India"
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "category": "History",
+        "title": "History",
+        "content": "Constructed primarily between 885 CE and 1000 CE, the temples of Khajuraho were built under the patronage of the Chandela dynasty. Spanning a period of immense regional prosperity and architectural experimentation, original historical accounts note that up to 85 temples once stood across the complex before centuries of political shifting and overgrowth reclaimed the site until its 19th-century rediscovery."
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "category": "Architecture",
+        "title": "Architecture",
+        "content": "Exhibiting the finest expression of North Indian Nagara-style architecture, the temples feature soaring, curved superstructures (shikharas) built entirely without mortar, held together through gravity and precise interlocking stone joints. The exterior and interior walls are covered with rows of rich sculptural art, depicting deities, celestial maidens (Apsaras), daily life activities, and explicit, expressive erotic friezes."
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "category": "Facts",
+        "title": "Facts",
+        "content": "Only about 25 of the original 85 temples have survived across the protected archaeological zone today.\nThe complex uniquely includes both Hindu and Jain temples standing side by side, highlighting historical religious tolerance and freedom of thought.\nThe stone blocks were assembled using an interlocking tongue-and-groove system, balanced entirely by weight."
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "category": "Secrets",
+        "title": "Secrets",
+        "content": "Far from being purely decorative or hedonistic, the famous erotic carvings represent spiritual liberation, cosmic union, and the traditional Indian philosophy linking human desire (Kama) to life's four ultimate goals.\nThe temples are strategically oriented so that the sanctums catch the first warming light of the morning sun."
+      },
+      {
+        "id": 6,
+        "order": 6,
+        "category": "Culture & Importance",
+        "title": "Culture & Importance",
+        "content": "Recognized globally as a UNESCO World Heritage Site, Khajuraho breaks traditional molds by celebrating human emotions, love, and life in its totality. It remains a masterclass in medieval stone carving and Indian aesthetic philosophy."
+      }
+    ],
+    "unknownSecret": "Grand Secret: Every temple layout is mathematically mapped onto sacred geometric yantras, aligning structural weight loads so perfectly that thousands of tons of stone rest in stable equilibrium without binding mortar."
+  },
+  {
+    "templeId": "hampi",
+    "name": "Group of Monuments at Hampi",
+    "location": "Vijayanagara District, Karnataka, India",
+    "masterImageUrl": "/images/temples/hampi.jpg",
+    "totalCards": 6,
+    "flashcards": [
+      {
+        "id": 1,
+        "order": 1,
+        "category": "Name & Location",
+        "title": "Name & Location",
+        "content": "Name: Group of Monuments at Hampi\nLocation: Vijayanagara District, Karnataka, India"
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "category": "History",
+        "title": "History",
+        "content": "Hampi served as the glorious medieval capital of the Vijayanagara Empire, established in the 14th century by the brothers Harihara and Bukka. During its peak in the 15th and 16th centuries, it grew into one of the world's largest, wealthiest, and most vibrant trading hubs for spices and gems, before being sacked and abandoned following the Battle of Talikota in 1565."
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "category": "Architecture",
+        "title": "Architecture",
+        "content": "Built directly into a dramatic landscape of boulder-strewn hills and the Tungabhadra River, Hampi’s architecture fuses Dravidian structural grandeur with military fortification. Iconic structures like the Vittala Temple feature sprawling pillared halls, advanced hydraulic aqueducts, and the famous stone chariot shrine, all carved meticulously out of hard granite rock."
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "category": "Facts",
+        "title": "Facts",
+        "content": "The famous musical pillars (SaReGaMa pillars) of the Vittala Temple emit distinct musical notes when gently tapped due to their internal hollow design and mineral composition.\nThe site spans over 41 square kilometers, embedding thousands of structural remains, royal enclosures, and ancient marketplaces within a natural boulder landscape.\nAncient market streets outside temples span miles, designed wide enough for massive chariot processions during annual festivals."
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "category": "Secrets",
+        "title": "Secrets",
+        "content": "Hidden underground chambers and secret royal tunnels connect various palace rooms within the Lotus Mahal complex, designed for secure state communications.\nMany structural pillars across the site were engineered with precise acoustic properties to project sound across long open courtyards without amplification."
+      },
+      {
+        "id": 6,
+        "order": 6,
+        "category": "Culture & Importance",
+        "title": "Culture & Importance",
+        "content": "A UNESCO World Heritage Site, Hampi is a living testament to imperial ambition, artistic expression, and advanced urban planning in South India. It preserves the rich cultural synthesis of art, literature, and trade from the golden age of South Indian history."
+      }
+    ],
+    "unknownSecret": "Grand Secret: The iconic stone chariot at Vittala Temple was engineered not as a solid sculpture, but as a fully articulated miniature shrine with functional stone wheels that historically could rotate on axle pivots."
+  },
+  {
+    "templeId": "brihadeeswara-temple",
+    "name": "Brihadeeswara Temple",
+    "location": "Thanjavur, Tamil Nadu, India",
+    "masterImageUrl": "/images/temples/brihadeeswara.jpg",
+    "totalCards": 6,
+    "flashcards": [
+      {
+        "id": 1,
+        "order": 1,
+        "category": "Name & Location",
+        "title": "Name & Location",
+        "content": "Name: Brihadeeswara Temple (Periya Kovil)\nLocation: Thanjavur, Tamil Nadu, India"
+      },
+      {
+        "id": 2,
+        "order": 2,
+        "category": "History",
+        "title": "History",
+        "content": "Constructed in 1010 CE by the legendary Chola Emperor Rajaraja I, the Brihadeeswara Temple stands as a supreme monument to Chola military might, maritime dominance, and religious devotion. It celebrated the empire's vast wealth and administrative stability at the core of their ancient capital."
+      },
+      {
+        "id": 3,
+        "order": 3,
+        "category": "Architecture",
+        "title": "Architecture",
+        "content": "As a supreme masterpiece of Chola Dravidian architecture, the temple is built entirely from granite blocks without mortar. Its towering central vimana (sanctum tower) rises roughly 66 meters high, making it one of the tallest of its kind globally, topped with a massive monolithic cupola dome carved from a single 80-tonne stone block."
+      },
+      {
+        "id": 4,
+        "order": 4,
+        "category": "Facts",
+        "title": "Facts",
+        "content": "The massive crowning capstone atop the main tower weighs around 80 tonnes and was reportedly hauled up a specially built 6-kilometer ramp of earth.\nA colossal monolithic statue of Nandi (the sacred bull), carved out of a single rock, guards the main shrine entrance.\nThe temple courtyard is large enough to comfortably host thousands of people while maintaining exact mathematical symmetry."
+      },
+      {
+        "id": 5,
+        "order": 5,
+        "category": "Secrets",
+        "title": "Secrets",
+        "content": "Despite standing through centuries of major regional earthquakes, the temple has never toppled, owing its survival to a brilliant interlocking dry-masonry construction technique that absorbs seismic shock.\nElaborate underground escape passages and administrative treasuries remain sealed beneath the primary sanctum structure."
+      },
+      {
+        "id": 6,
+        "order": 6,
+        "category": "Culture & Importance",
+        "title": "Culture & Importance",
+        "content": "Inscribed as a UNESCO World Heritage Site as part of the 'Great Living Chola Temples', Brihadeeswara remains an active center of worship, classical Bharatanatyam dance performances, and South Indian spiritual tradition, preserving a millennium of unbroken heritage."
+      }
+    ],
+    "unknownSecret": "Grand Secret: The hollow core of the towering vimana acts as a vertical acoustic resonator chamber that amplifies Vedic chants sung in the sanctum, projecting sound evenly across the vast outer courtyards."
+  }
+]

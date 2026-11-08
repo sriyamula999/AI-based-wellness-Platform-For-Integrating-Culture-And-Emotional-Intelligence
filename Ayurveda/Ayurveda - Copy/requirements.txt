@@ -1,0 +1,10 @@
+faiss-cpu
+Flask
+Flask-Login
+Flask-SQLAlchemy
+google-generativeai
+langchain-text-splitters
+PyMuPDF
+python-dotenv
+sentence-transformers
+Werkzeug

@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+**/node_modules/
+venv/
+**/venv/
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+**/dist/
+build/
+**/build/
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Local databases and generated data
+*.db
+*.sqlite
+*.sqlite3
+vector_db/
+**/vector_db/
+data/chunks/
+data/cleaned_text/
+data/extracted_text/
+data/refined_text/
+data/structured_sections/
+**/data/chunks/
+**/data/cleaned_text/
+**/data/extracted_text/
+**/data/refined_text/
+**/data/structured_sections/
+**/data/raw_pdfs/
+
+# Logs
+*.log
+
+# Editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Saved browser search archive
+Major_Project/src/india images - Yahoo India Image Search results.html
+Major_Project/src/india images - Yahoo India Image Search results_files/
